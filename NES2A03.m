@@ -266,6 +266,7 @@
 void start_opcode(cpudata *cpu) {
 	cpu->opcode = cpu->data;
 	cpu->ic = 1;
+	cpu->page_crossing = FALSE;
 	increment_pc(cpu);
 	pc_to_adr(cpu);
 }
@@ -588,17 +589,16 @@ void opcode_10(cpudata *cpu) { // BPL
 			if(cpu->n) {
 				start_opcode(cpu);
 			} else {
-				if (cpu->pcl + cpu->ir > 0x100) 
+				if (cpu->pcl + cpu->ir > 0xFF) 
 					cpu->page_crossing = TRUE;
 				
-				cpu->pcl = (cpu->pcl + cpu->ir) % 0x100;
+				cpu->pcl = add_low(cpu->pcl, cpu->ir);
 				pc_to_adr(cpu);
 				cpu->ic++;
 			}
 			break;
 		case 3:
 			if(cpu->page_crossing) {
-				cpu->page_crossing = FALSE;
 				cpu->pch++;
 				pc_to_adr(cpu);
 				cpu->ic++;
@@ -626,14 +626,14 @@ void opcode_11(cpudata *cpu) { // ORA (Indirect,Y)
 			cpu->ic++;
 			break;
 		case 3:
-			if(cpu->ir + cpu->y > 0x100)
+			if(cpu->ir + cpu->y > 0xFF)
 				cpu->page_crossing = TRUE;
 			cpu->adl = add_low(cpu->ir, cpu->y);
 			cpu->adh = cpu->data;
 			cpu->ic++;
 			break;
 		case 4:
-			if(cpu->page_crossing == TRUE) {
+			if(cpu->page_crossing) {
 				cpu->adh++;
 			} else {
 				ora(cpu);
@@ -642,7 +642,7 @@ void opcode_11(cpudata *cpu) { // ORA (Indirect,Y)
 			cpu->ic++;
 			break;
 		case 5:
-			if(cpu->page_crossing == TRUE) {
+			if(cpu->page_crossing) {
 				ora(cpu);
 				pc_to_adr(cpu);
 				cpu->ic++;
@@ -683,26 +683,175 @@ void opcode_15(cpudata *cpu) { // ORA (ZP,X)
 void opcode_16(cpudata *cpu) { // ASL (ZP,X)
 	switch (cpu->ic) {
 		case 1:
-			
+			cpu->adl(cpu->data);
+			cpu->ic++;
+			break;
+		case 2:
+			cpu->adl += cpu->x;
+			cpu->ic++;
+			break;
+		case 3:
+			cpu->ir = cpu->data;
+			cpu->write = TRUE;
+			cpu->ic++;
+			break;
+		case 4:
+			asl(cpu);
+			cpu->data = cpu->ir;
+			cpu->write = TRUE;
+			cpu->ic++;
+			break;
+		case 5:
+			pc_to_adr(cpu);
+			cpu->ic++;
+			break;
+		case 6:
+			start_opcode(cpu);
 			break;
 		default:
 			break;
 	}
-} // ASL (ZP,X)
-  // 17 undefined
-void opcode_18(cpudata *cpu) {
-	
-} // CLC
-void opcode_19(cpudata *cpu) {
-	
-} // ORA (Absolute,Y)
-  // 1a-1c undefined
-void opcode_1d(cpudata *cpu) {
-	
-} // ORA (Absolute,X)
-void opcode_1e(cpudata *cpu) {
-	
-} // ASL (Absolute,X)
+}
+
+void opcode_18(cpudata *cpu) { // CLC
+	switch (cpu->ic) {
+		case 1:
+			cpu->c = FALSE;
+			cpu->ic++;
+			break;
+		case 2:
+			start_opcode(cpu);
+			break;
+		default:
+			break;
+	}
+}
+void opcode_19(cpudata *cpu) { // ORA (Absolute,Y)
+	switch (cpu->ic) {
+		case 1:
+			cpu->ir = cpu->data;
+			increment_pc(cpu);
+			pc_to_adr(cpu);
+			cpu->ic++;
+			break;
+		case 2:
+			increment_pc(cpu);
+			if (cpu->ir + cpu->y > 0xFF) {
+				cpu->page_crossing = TRUE;
+			}
+			cpu->adh = cpu->data;
+			cpu->adl = add_low(cpu->ir, cpu->y);
+			cpu->ic++;
+		case 3:
+			if (cpu->page_crossing) {
+				cpu->adh++;
+				cpu->ic++;
+			} else {
+				ora(cpu);
+				pc_to_adr(cpu);
+				cpu->ic++;
+			}
+			break;
+		case 4:
+			if (cpu->page_crossing) {
+				ora(cpu);
+				pc_to_adr(cpu);
+				cpu->ic++;
+			} else {
+				start_opcode(cpu);
+			}
+			break;
+		case 5:
+			start_opcode(cpu);
+			break;
+		default:
+			break;
+	}
+}
+
+void opcode_1d(cpudata *cpu) { // ORA (Absolute,X)
+	switch (cpu->ic) {
+		case 1:
+			cpu->ir = cpu->data;
+			increment_pc(cpu);
+			pc_to_adr(cpu);
+			cpu->ic++;
+			break;
+		case 2:
+			increment_pc(cpu);
+			if (cpu->ir + cpu->x > 0xFF) {
+				cpu->page_crossing = TRUE;
+			}
+			cpu->adh = cpu->data;
+			cpu->adl = add_low(cpu->ir, cpu->x);
+			cpu->ic++;
+		case 3:
+			if (cpu->page_crossing) {
+				cpu->adh++;
+				cpu->ic++;
+			} else {
+				ora(cpu);
+				pc_to_adr(cpu);
+				cpu->ic++;
+			}
+			break;
+		case 4:
+			if (cpu->page_crossing) {
+				ora(cpu);
+				pc_to_adr(cpu);
+				cpu->ic++;
+			} else {
+				start_opcode(cpu);
+			}
+			break;
+		case 5:
+			start_opcode(cpu);
+			break;
+		default:
+			break;
+	}
+}
+void opcode_1e(cpudata *cpu) {  // ASL (Absolute,X)
+	switch (cpu->ic) {
+		case 1:
+			cpu->ir = cpu->data;
+			increment_pc(cpu);
+			pc_to_adr(cpu);
+			cpu->ic++;
+			break;
+		case 2:
+			increment_pc(cpu);
+			if (cpu->ir + cpu->x > 0xFF) {
+				cpu->page_crossing = TRUE;
+			}
+			cpu->adh = cpu->data;
+			cpu->adl = add_low(cpu->ir, cpu->x);
+			cpu->ic++;
+		case 3:
+			if (cpu->page_crossing) 
+				cpu->adh++;
+			cpu->ic++;
+			break;
+		case 4:
+			cpu->ir = cpu->data;
+			cpu->write = TRUE;
+			cpu->ic++;
+			break;
+		case 5:
+			asl(cpu);
+			cpu->write = TRUE;
+			cpu->ic++;
+		case 6:
+			pc_to_adr(cpu);
+			ic++;
+			break;
+		case 7:
+			start_opcode(cpu);
+			break;
+		default:
+			break;
+	}
+}
   // 1f undefined
 void opcode_20(cpudata *cpu) {
 	
