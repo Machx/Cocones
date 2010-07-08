@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0116CABA11E427D40005A7E9 /* NES2C02.m in Sources */ = {isa = PBXBuildFile; fileRef = 0116CAB911E427D40005A7E9 /* NES2C02.m */; };
+		016D1C4311E5897F00A96F31 /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 016D1C4211E5897F00A96F31 /* COPYING */; };
 		01FB005C11DCCBC80093E30C /* NES2A03.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FB005B11DCCBC80093E30C /* NES2A03.m */; };
 		01FB006111DCCC1B0093E30C /* NESController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FB006011DCCC1B0093E30C /* NESController.m */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		0116CAB811E427D40005A7E9 /* NES2C02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NES2C02.h; sourceTree = "<group>"; };
 		0116CAB911E427D40005A7E9 /* NES2C02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NES2C02.m; sourceTree = "<group>"; };
+		016D1C4211E5897F00A96F31 /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		01FB005A11DCCBC80093E30C /* NES2A03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NES2A03.h; sourceTree = "<group>"; };
 		01FB005B11DCCBC80093E30C /* NES2A03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NES2A03.m; sourceTree = "<group>"; };
 		01FB005F11DCCC1B0093E30C /* NESController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NESController.h; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				016D1C4211E5897F00A96F31 /* COPYING */,
 			);
 			name = CoCoNES;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				016D1C4311E5897F00A96F31 /* COPYING in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
