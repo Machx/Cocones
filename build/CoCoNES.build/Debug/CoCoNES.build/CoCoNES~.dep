@@ -1,0 +1,12 @@
+d1fa9947ececa39423e9b9054a4f7671 be33c6d76857ea61c2de617bb7bf175a ffffffffffffffffffffffffffffffff 76188 /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NES6502.o
+d1fa9947e0049dcf23e9b9054a4f6bf7 8d6956017f03a96a81f8977f79c13423 ffffffffffffffffffffffffffffffff 27400 /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NESController.o
+d1fa9947e0049dc223e9b9054a4f422c dd220628b8815fcd8983b3da3836de7a ffffffffffffffffffffffffffffffff 4968 /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/main.o
+d1fa9947ac2809c223e9b9054a4f411b 1babb7ca4d34cd71e3add5a3e73b711b ffffffffffffffffffffffffffffffff 0 /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NESAppDelegate.o
+000000000ce83e6f0000000000000174 d1fa9947e0049dc223e9b9054a4f4243 ffffffffffffffffffffffffffffffff 54265616 /var/folders/Gn/GnEnOtfoE6CxFODWsM6vsk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/CoCoNES_Prefix-cazrahrkrseymydubqouezaplsct/CoCoNES_Prefix.pch.gch
+000000004c2c9566000000000002dbad 0f8c7e342741f313d1db65af1c84e964 ffffffffffffffffffffffffffffffff 35305 /Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/Resources/English.lproj/MainMenu.nib
+000000004c2c9407000000000000002d e7c4f8c0b28f22e7bfc279f24efa1dd2 ffffffffffffffffffffffffffffffff 92 /Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/Resources/English.lproj/InfoPlist.strings
+00000000000000000000000000000000 ec722227f6fe0f786a60fc5eac37c6fc ffffffffffffffffffffffffffffffff 886 /Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/Info.plist
+00000000000000000000000000000000 ec722227f6fe0f786a60fc5eac37c6fc ffffffffffffffffffffffffffffffff 8 /Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/PkgInfo
+ffffffffffffffffffffffffffffffff 1f5a5d0fc54359282b3527ec3d362f08 ffffffffffffffffffffffffffffffff 0 /Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app
+ffffffffffffffffffffffffffffffff 33b4be431117a6c9fb7a938d38deca59 ffffffffffffffffffffffffffffffff 0 /Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/MacOS/CoCoNES
+ffffffffffffffffffffffffffffffff ffffffffffffffffffffffffffffffff ffffffffffffffffffffffffffffffff 0 /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/CoCoNESAppDelegate.o

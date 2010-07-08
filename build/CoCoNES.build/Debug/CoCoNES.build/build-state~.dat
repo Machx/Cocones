@@ -1,0 +1,278 @@
+TCoCoNES
+v7
+r0
+t299683088.734598
+cCheck dependencies
+cProcessInfoPlistFile /Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/Info.plist CoCoNES-Info.plist
+cCopyStringsFile /Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+cCompileXIB /Users/nick/Desktop/CoCoNES/English.lproj/MainMenu.xib
+cProcessPCH /var/folders/Gn/GnEnOtfoE6CxFODWsM6vsk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/CoCoNES_Prefix-cazrahrkrseymydubqouezaplsct/CoCoNES_Prefix.pch.gch CoCoNES_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/main.o /Users/nick/Desktop/CoCoNES/main.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NESAppDelegate.o /Users/nick/Desktop/CoCoNES/NESAppDelegate.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NES6502.o /Users/nick/Desktop/CoCoNES/NES6502.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NESController.o /Users/nick/Desktop/CoCoNES/NESController.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004C150B1500000000000000EE
+t1276447509
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
+c0000000040C4AA6800000000000001E5
+t1086630504
+s485
+
+N/System/Library/Frameworks/Cocoa.framework/Cocoa
+c000000004A1F2D63000000000000A5E0
+t1243557219
+s42464
+
+N/Users/nick/Desktop/CoCoNES/CoCoNESAppDelegate.h
+c000000004C2C9407000000000000013C
+t1277989895
+s316
+i<Cocoa/Cocoa.h>
+
+N/Users/nick/Desktop/CoCoNES/CoCoNESAppDelegate.m
+c000000004C2C94070000000000000171
+t1277989895
+s369
+i"CoCoNESAppDelegate.h"
+
+N/Users/nick/Desktop/CoCoNES/CoCoNES_Prefix.pch
+c000000004C2C94070000000000000091
+t1277989895
+s145
+i<Cocoa/Cocoa.h>
+
+N/Users/nick/Desktop/CoCoNES/English.lproj/InfoPlist.strings
+c000000004C2C9407000000000000002D
+t1277989895
+s45
+
+N/Users/nick/Desktop/CoCoNES/English.lproj/MainMenu.xib
+c000000004C2C9566000000000002DBAD
+t1277990246
+s187309
+
+N/Users/nick/Desktop/CoCoNES/NES6502.h
+c000000004C2C9475000000000000219B
+t1277990005
+s8603
+i<Cocoa/Cocoa.h>
+i"NESController.h"
+
+N/Users/nick/Desktop/CoCoNES/NES6502.m
+c000000004C2C948C00000000000037CD
+t1277990028
+s14285
+i"NES6502.h"
+
+N/Users/nick/Desktop/CoCoNES/NESAppDelegate.h
+c000000004C2C95010000000000000175
+t1277990145
+s373
+i<Cocoa/Cocoa.h>
+
+N/Users/nick/Desktop/CoCoNES/NESAppDelegate.m
+c000000004C2C950600000000000002BC
+t1277990150
+s700
+i"NESAppDelegate.h"
+
+N/Users/nick/Desktop/CoCoNES/NESController.h
+c000000004C2C94B5000000000000028B
+t1277990069
+s651
+i<Cocoa/Cocoa.h>
+i"NES6502.h"
+
+N/Users/nick/Desktop/CoCoNES/NESController.m
+c000000004C2C94CA0000000000000A35
+t1277990090
+s2613
+i"NESController.h"
+
+N/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/CoCoNES.LinkFileList
+c000000004C2C958C000000000000019A
+t1277990284
+s410
+
+N/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/CoCoNESAppDelegate.o
+t2
+s0
+
+N/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NES6502.o
+t1277990288
+s76188
+
+N/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NESAppDelegate.o
+t2
+s0
+
+N/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NESController.o
+t1277990288
+s27400
+
+N/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/main.o
+t1277990288
+s4968
+
+N/Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app
+t2
+s0
+
+N/Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/Info.plist
+t1277990284
+s886
+
+N/Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/MacOS/CoCoNES
+t2
+s0
+
+N/Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/PkgInfo
+t1277990284
+s8
+
+N/Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/Resources/English.lproj/InfoPlist.strings
+t1277990284
+s92
+
+N/Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/Resources/English.lproj/MainMenu.nib
+t1277990284
+s35305
+
+N/Users/nick/Desktop/CoCoNES/main.m
+c000000004C2C940700000000000000FE
+t1277989895
+s254
+i<Cocoa/Cocoa.h>
+
+N/var/folders/Gn/GnEnOtfoE6CxFODWsM6vsk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/CoCoNES_Prefix-cazrahrkrseymydubqouezaplsct/CoCoNES_Prefix.pch.gch
+t1277990288
+s54265616
+
+NCoCoNES-Info.plist
+c000000004C2C940700000000000003EA
+t1277989895
+s1002
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies299683084#299683084#0(0"0(0#1#0"8726435872#0"0#
+
+CCompileC build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/CoCoNESAppDelegate.o /Users/nick/Desktop/CoCoNES/CoCoNESAppDelegate.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NES6502.o /Users/nick/Desktop/CoCoNES/NES6502.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s299683088.429146
+e299683088.734512
+r1
+xCompileC
+xbuild/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NES6502.o
+x/Users/nick/Desktop/CoCoNES/NES6502.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/nick/Desktop/CoCoNES/NES6502.m: In function '-[NES6502 initWithController:]':
+o/Users/nick/Desktop/CoCoNES/NES6502.m:199: warning: assignment makes integer from pointer without a cast
+o/Users/nick/Desktop/CoCoNES/NES6502.m: In function '-[NES6502 tick]':
+o/Users/nick/Desktop/CoCoNES/NES6502.m:211: warning: comparison between pointer and integer
+lSLF07#2@45"Compile /Users/nick/Desktop/CoCoNES/NES6502.m299683088#299683088#0(351"/Users/nick/Desktop/CoCoNES/NES6502.m: In function '-[NES6502 initWithController:]':/Users/nick/Desktop/CoCoNES/NES6502.m:199: warning: assignment makes integer from pointer without a cast/Users/nick/Desktop/CoCoNES/NES6502.m: In function '-[NES6502 tick]':/Users/nick/Desktop/CoCoNES/NES6502.m:211: warning: comparison between pointer and integer2(22@52"Assignment makes integer from pointer without a cast299683088#85#105#0(6@37"/Users/nick/Desktop/CoCoNES/NES6502.m299682828#199#0#199#0#0"0(22@38"Comparison between pointer and integer299683088#260#91#0(6@37"/Users/nick/Desktop/CoCoNES/NES6502.m299682828#211#0#211#0#0"0(0#0#37"/Users/nick/Desktop/CoCoNES/NES6502.m8720289120#1335"    cd /Users/nick/Desktop/CoCoNES    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-generated-files.hmap -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-own-target-headers.hmap -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-all-target-headers.hmap -iquote /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-project-headers.hmap -F/Users/nick/Desktop/CoCoNES/build/Debug -I/Users/nick/Desktop/CoCoNES/build/Debug/include -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/DerivedSources/x86_64 -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/DerivedSources -include /var/folders/Gn/GnEnOtfoE6CxFODWsM6vsk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/CoCoNES_Prefix-cazrahrkrseymydubqouezaplsct/CoCoNES_Prefix.pch -c /Users/nick/Desktop/CoCoNES/NES6502.m -o /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NES6502.o0#
+
+CCompileC build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NESAppDelegate.o /Users/nick/Desktop/CoCoNES/NESAppDelegate.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s299683088.292341
+e299683088.429048
+r0
+xCompileC
+xbuild/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NESAppDelegate.o
+x/Users/nick/Desktop/CoCoNES/NESAppDelegate.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+oIn file included from /Users/nick/Desktop/CoCoNES/NESAppDelegate.m:9:
+o/Users/nick/Desktop/CoCoNES/NESAppDelegate.h:13: error: expected specifier-qualifier-list before 'NESController'
+o/Users/nick/Desktop/CoCoNES/NESAppDelegate.m: In function '-[NESAppDelegate applicationDidFinishLaunching:]':
+o/Users/nick/Desktop/CoCoNES/NESAppDelegate.m:27: error: 'nesController' undeclared (first use in this function)
+o/Users/nick/Desktop/CoCoNES/NESAppDelegate.m:27: error: (Each undeclared identifier is reported only once
+o/Users/nick/Desktop/CoCoNES/NESAppDelegate.m:27: error: for each function it appears in.)
+o/Users/nick/Desktop/CoCoNES/NESAppDelegate.m:27: error: 'NESController' undeclared (first use in this function)
+o/Users/nick/Desktop/CoCoNES/NESAppDelegate.m: In function '-[NESAppDelegate tick:]':
+o/Users/nick/Desktop/CoCoNES/NESAppDelegate.m:32: error: 'nesController' undeclared (first use in this function)
+lSLF07#2@52"Compile /Users/nick/Desktop/CoCoNES/NESAppDelegate.m299683088#299683088#0(910"In file included from /Users/nick/Desktop/CoCoNES/NESAppDelegate.m:9:/Users/nick/Desktop/CoCoNES/NESAppDelegate.h:13: error: expected specifier-qualifier-list before 'NESController'/Users/nick/Desktop/CoCoNES/NESAppDelegate.m: In function '-[NESAppDelegate applicationDidFinishLaunching:]':/Users/nick/Desktop/CoCoNES/NESAppDelegate.m:27: error: 'nesController' undeclared (first use in this function)/Users/nick/Desktop/CoCoNES/NESAppDelegate.m:27: error: (Each undeclared identifier is reported only once/Users/nick/Desktop/CoCoNES/NESAppDelegate.m:27: error: for each function it appears in.)/Users/nick/Desktop/CoCoNES/NESAppDelegate.m:27: error: 'NESController' undeclared (first use in this function)/Users/nick/Desktop/CoCoNES/NESAppDelegate.m: In function '-[NESAppDelegate tick:]':/Users/nick/Desktop/CoCoNES/NESAppDelegate.m:32: error: 'nesController' undeclared (first use in this function)4(4@56"Expected specifier-qualifier-list before 'NESController'299683088#70#113#2(7@66"In file included from /Users/nick/Desktop/CoCoNES/NESAppDelegate.m299683088#18446744073709551615#0#0(6@44"/Users/nick/Desktop/CoCoNES/NESAppDelegate.m299682950#9#0#9#0#0"0(13@104"Expected specifier-qualifier-list before 'NESController' in /Users/nick/Desktop/CoCoNES/NESAppDelegate.h299683088#18446744073709551615#0#0(6@44"/Users/nick/Desktop/CoCoNES/NESAppDelegate.h299682945#13#0#13#0#0"0(6@44"/Users/nick/Desktop/CoCoNES/NESAppDelegate.h299682945#13#0#13#0#19"expected * before *0(4@55"'nesController' undeclared (first use in this function)299683088#293#112#0(6@44"/Users/nick/Desktop/CoCoNES/NESAppDelegate.m299682950#27#0#27#0#43"'*' undeclared (first use in this function)0(4@55"'NESController' undeclared (first use in this function)299683088#601#112#0(6@44"/Users/nick/Desktop/CoCoNES/NESAppDelegate.m299682950#27#0#27#0#43"'*' undeclared (first use in this function)0(4@55"'nesController' undeclared (first use in this function)299683088#798#112#0(6@44"/Users/nick/Desktop/CoCoNES/NESAppDelegate.m299682950#32#0#32#0#43"'*' undeclared (first use in this function)0(0#0#44"/Users/nick/Desktop/CoCoNES/NESAppDelegate.m8602153312#1349"    cd /Users/nick/Desktop/CoCoNES    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-generated-files.hmap -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-own-target-headers.hmap -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-all-target-headers.hmap -iquote /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-project-headers.hmap -F/Users/nick/Desktop/CoCoNES/build/Debug -I/Users/nick/Desktop/CoCoNES/build/Debug/include -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/DerivedSources/x86_64 -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/DerivedSources -include /var/folders/Gn/GnEnOtfoE6CxFODWsM6vsk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/CoCoNES_Prefix-cazrahrkrseymydubqouezaplsct/CoCoNES_Prefix.pch -c /Users/nick/Desktop/CoCoNES/NESAppDelegate.m -o /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NESAppDelegate.o1#
+
+CCompileC build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NESController.o /Users/nick/Desktop/CoCoNES/NESController.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s299683088.472044
+e299683088.660590
+r1
+xCompileC
+xbuild/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NESController.o
+x/Users/nick/Desktop/CoCoNES/NESController.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/nick/Desktop/CoCoNES/NESController.m: In function '-[NESController readAddress:]':
+o/Users/nick/Desktop/CoCoNES/NESController.m:89: warning: control reaches end of non-void function
+lSLF07#2@51"Compile /Users/nick/Desktop/CoCoNES/NESController.m299683088#299683088#0(188"/Users/nick/Desktop/CoCoNES/NESController.m: In function '-[NESController readAddress:]':/Users/nick/Desktop/CoCoNES/NESController.m:89: warning: control reaches end of non-void function1(22@40"Control reaches end of non-void function299683088#90#98#0(6@43"/Users/nick/Desktop/CoCoNES/NESController.m299682890#89#0#89#0#40"control reaches end of non-void function0(0#0#43"/Users/nick/Desktop/CoCoNES/NESController.m8665199776#1347"    cd /Users/nick/Desktop/CoCoNES    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-generated-files.hmap -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-own-target-headers.hmap -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-all-target-headers.hmap -iquote /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-project-headers.hmap -F/Users/nick/Desktop/CoCoNES/build/Debug -I/Users/nick/Desktop/CoCoNES/build/Debug/include -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/DerivedSources/x86_64 -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/DerivedSources -include /var/folders/Gn/GnEnOtfoE6CxFODWsM6vsk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/CoCoNES_Prefix-cazrahrkrseymydubqouezaplsct/CoCoNES_Prefix.pch -c /Users/nick/Desktop/CoCoNES/NESController.m -o /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/NESController.o0#
+
+CCompileC build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/main.o /Users/nick/Desktop/CoCoNES/main.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s299683088.291317
+e299683088.471933
+r1
+xCompileC
+xbuild/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/main.o
+x/Users/nick/Desktop/CoCoNES/main.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@42"Compile /Users/nick/Desktop/CoCoNES/main.m299683088#299683088#0(0"0(0#0#34"/Users/nick/Desktop/CoCoNES/main.m8687015712#1329"    cd /Users/nick/Desktop/CoCoNES    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-generated-files.hmap -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-own-target-headers.hmap -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-all-target-headers.hmap -iquote /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-project-headers.hmap -F/Users/nick/Desktop/CoCoNES/build/Debug -I/Users/nick/Desktop/CoCoNES/build/Debug/include -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/DerivedSources/x86_64 -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/DerivedSources -include /var/folders/Gn/GnEnOtfoE6CxFODWsM6vsk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/CoCoNES_Prefix-cazrahrkrseymydubqouezaplsct/CoCoNES_Prefix.pch -c /Users/nick/Desktop/CoCoNES/main.m -o /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/Objects-normal/x86_64/main.o0#
+
+CCompileXIB /Users/nick/Desktop/CoCoNES/English.lproj/MainMenu.xib
+s299683084.444466
+e299683084.824355
+r1
+xCompileXIB
+x/Users/nick/Desktop/CoCoNES/English.lproj/MainMenu.xib
+lSLF07#2@37"CompileXIB English.lproj/MainMenu.xib299683084#299683084#0(0"0(0#0#54"/Users/nick/Desktop/CoCoNES/English.lproj/MainMenu.xib8616463552#331"    cd /Users/nick/Desktop/CoCoNES    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/Resources/English.lproj/MainMenu.nib /Users/nick/Desktop/CoCoNES/English.lproj/MainMenu.xib --sdk /Developer/SDKs/MacOSX10.6.sdk0#
+
+CCopyStringsFile /Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+s299683084.443014
+e299683084.520475
+r1
+xCopyStringsFile
+x/Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/Resources/English.lproj/InfoPlist.strings
+xEnglish.lproj/InfoPlist.strings
+lSLF07#2@36"Copy English.lproj/InfoPlist.strings299683084#299683084#0(0"0(0#0#59"/Users/nick/Desktop/CoCoNES/English.lproj/InfoPlist.strings8607064704#343"    cd /Users/nick/Desktop/CoCoNES    setenv ICONV /usr/bin/iconv    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-8 --outputencoding UTF-16 English.lproj/InfoPlist.strings --outdir /Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/Resources/English.lproj0#
+
+CLd /Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/MacOS/CoCoNES normal x86_64
+r0
+
+CProcessInfoPlistFile /Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/Info.plist CoCoNES-Info.plist
+s299683084.392440
+e299683084.442884
+r1
+xProcessInfoPlistFile
+x/Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/Info.plist
+xCoCoNES-Info.plist
+lSLF07#2@26"Process CoCoNES-Info.plist299683084#299683084#0(0"0(0#0#46"/Users/nick/Desktop/CoCoNES/CoCoNES-Info.plist8707284928#277"    cd /Users/nick/Desktop/CoCoNES    builtin-infoPlistUtility CoCoNES-Info.plist -genpkginfo /Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app/Contents/Info.plist0#
+
+CProcessPCH /var/folders/Gn/GnEnOtfoE6CxFODWsM6vsk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/CoCoNES_Prefix-cazrahrkrseymydubqouezaplsct/CoCoNES_Prefix.pch.gch CoCoNES_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s299683084.824485
+e299683088.291096
+r1
+xProcessPCH
+x/var/folders/Gn/GnEnOtfoE6CxFODWsM6vsk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/CoCoNES_Prefix-cazrahrkrseymydubqouezaplsct/CoCoNES_Prefix.pch.gch
+xCoCoNES_Prefix.pch
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@29"Precompile CoCoNES_Prefix.pch299683084#299683088#0(0"0(0#0#46"/Users/nick/Desktop/CoCoNES/CoCoNES_Prefix.pch8732055712#1246"    cd /Users/nick/Desktop/CoCoNES    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-generated-files.hmap -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-own-target-headers.hmap -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-all-target-headers.hmap -iquote /Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/CoCoNES-project-headers.hmap -F/Users/nick/Desktop/CoCoNES/build/Debug -I/Users/nick/Desktop/CoCoNES/build/Debug/include -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/DerivedSources/x86_64 -I/Users/nick/Desktop/CoCoNES/build/CoCoNES.build/Debug/CoCoNES.build/DerivedSources -c /Users/nick/Desktop/CoCoNES/CoCoNES_Prefix.pch -o /var/folders/Gn/GnEnOtfoE6CxFODWsM6vsk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/CoCoNES_Prefix-cazrahrkrseymydubqouezaplsct/CoCoNES_Prefix.pch.gch0#
+
+CTouch /Users/nick/Desktop/CoCoNES/build/Debug/CoCoNES.app
+r0
+
