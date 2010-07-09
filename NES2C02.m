@@ -24,4 +24,13 @@
 
 @implementation NES2C02
 
+- (id) initWithController:(NESController *)controller
+{
+	self = [super init];
+	if (self != nil) {
+		
+	}
+	return self;
+}
+
 @end

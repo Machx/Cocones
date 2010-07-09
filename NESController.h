@@ -28,6 +28,7 @@
 @interface NESController : NSThread {
 	
 	NES2A03 *cpu;
+	NES2C02 *ppu;
 	
 	unsigned short cpuAddressBus;
 	unsigned char cpuDataBus;

@@ -19,10 +19,15 @@
  *
  ********************************************************************************/
 #import <Cocoa/Cocoa.h>
+#import "NESController.h"
+
+@class NESController;
 
 
 @interface NES2C02 : NSObject {
 
 }
+
+- (id)initWithController:(NESController *controller);
 
 @end
