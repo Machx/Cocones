@@ -24,11 +24,13 @@
 
 @class NES2A03;
 
-
 @interface NESController : NSThread {
 	
 	NES2A03 *cpu;
 	NES2C02 *ppu;
+	
+	dispatch_queue_t cpu_queue;
+	dispatch_queue_t ppu_queue;
 	
 	unsigned short cpuAddressBus;
 	unsigned char cpuDataBus;
@@ -46,6 +48,7 @@
 
 @property(assign) unsigned short cpuAddressBus;
 @property(assign) unsigned char cpuDataBus;
+@property(assign) bool reset;
 
 - (id) initWithROMFile:(NSURL *)romURL;
 - (unsigned char)readAddress:(unsigned short)address;

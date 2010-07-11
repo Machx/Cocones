@@ -295,7 +295,7 @@ void pc_to_adr(cpudata *cpu) {
 	cpu->adh = cpu->pch;
 }
 
-void stack_to_adr(cpudata *cpu) {
+void sp_to_adr(cpudata *cpu) {
 	cpu->adh = 0x01;
 	cpu->adl = cpu->sp;
 }
@@ -334,21 +334,21 @@ void opcode_00(cpudata *cpu) { //BRK
 	switch (cpu->ic) {
 		case 1:
 			increment_pc(cpu);
-			stack_to_adr(cpu);
+			sp_to_adr(cpu);
 			cpu->write = TRUE;
 			cpu->data = cpu->pch;
 			cpu->sp--;
 			cpu->ic++;
 			break;
 		case 2:
-			stack_to_adr(cpu);
+			sp_to_adr(cpu);
 			cpu->write = TRUE;
 			cpu->data = cpu->pcl;
 			cpu->sp--;
 			cpu->ic++;
 			break;
 		case 3:
-			stack_to_adr(cpu);
+			sp_to_adr(cpu);
 			cpu->write = TRUE;
 			cpu->data = encode_p(cpu);
 			cpu->sp--;
@@ -399,7 +399,7 @@ void opcode_01(cpudata *cpu) { // ORA (Indirect,X)
 			cpu->ic++;
 			break;
 		case 5:
-			ora(cpu);
+			op_ora(cpu);
 			pc_to_adr(cpu);
 			cpu->ic++;
 			break;
@@ -419,7 +419,7 @@ void opcode_05(cpudata *cpu) { // ORA (ZP)
 			cpu->ic++;
 			break;
 		case 2:
-			ora(cpu);
+			op_ora(cpu);
 			pc_to_adr(cpu);
 			cpu->ic++;
 			break;
@@ -445,7 +445,7 @@ void opcode_06(cpudata *cpu) { // ASL (ZP)
 			break;
 		case 3:
 			cpu->write = TRUE;
-			asl(cpu);
+			op_asl(cpu);
 			cpu->data = cpu->ir;
 			cpu->ic++;
 			break;
@@ -465,7 +465,7 @@ void opcode_08(cpudata *cpu) { // PHP
 	switch (cpu->ic) {
 		case 1:
 			cpu->write = TRUE;
-			stack_to_adr(cpu);
+			sp_to_adr(cpu);
 			cpu->sp--;
 			cpu->data = encode_p(cpu);
 			cpu->ic++;
@@ -486,7 +486,7 @@ void opcode_09(cpudata *cpu) {  // ORA (Immediate)
 		case 1:
 			increment_pc(cpu);
 			pc_to_adr(cpu);
-			ora(cpu);
+			op_ora(cpu);
 			cpu->ic++;
 			break;
 		case 2:
@@ -502,7 +502,7 @@ void opcode_0a(cpudata *cpu) { // ASL (Accumulator)
 		case 1:
 			cpu->ir = cpu->a;
 			pc_to_adr(cpu);
-			asl(cpu);
+			op_asl(cpu);
 			cpu->a = cpu->ir;
 			cpu->ic++;
 			break;
@@ -528,7 +528,7 @@ void opcode_0d(cpudata *cpu) { // ORA (Absolute)
 			cpu->ic++;
 			break;
 		case 3:
-			ora(cpu);
+			op_ora(cpu);
 			pc_to_adr(cpu);
 			cpu->ic++;
 			break;
@@ -560,7 +560,7 @@ void opcode_0e(cpudata *cpu) { // ASL (Absolute)
 			break;
 		case 4:
 			cpu->write = TRUE;
-			asl(cpu);
+			op_asl(cpu);
 			cpu->data = cpu->ir;
 			cpu->ic++;
 			break;
@@ -636,14 +636,14 @@ void opcode_11(cpudata *cpu) { // ORA (Indirect,Y)
 			if(cpu->page_crossing) {
 				cpu->adh++;
 			} else {
-				ora(cpu);
+				op_ora(cpu);
 				pc_to_adr(cpu);
 			}
 			cpu->ic++;
 			break;
 		case 5:
 			if(cpu->page_crossing) {
-				ora(cpu);
+				op_ora(cpu);
 				pc_to_adr(cpu);
 				cpu->ic++;
 			} else {
@@ -669,7 +669,7 @@ void opcode_15(cpudata *cpu) { // ORA (ZP,X)
 			cpu->ic++;
 			break;
 		case 3:
-			ora(cpu);
+			op_ora(cpu);
 			pc_to_adr(cpu);
 			cpu->ic++;
 			break;
@@ -696,7 +696,7 @@ void opcode_16(cpudata *cpu) { // ASL (ZP,X)
 			cpu->ic++;
 			break;
 		case 4:
-			asl(cpu);
+			op_asl(cpu);
 			cpu->data = cpu->ir;
 			cpu->write = TRUE;
 			cpu->ic++;
@@ -747,14 +747,14 @@ void opcode_19(cpudata *cpu) { // ORA (Absolute,Y)
 				cpu->adh++;
 				cpu->ic++;
 			} else {
-				ora(cpu);
+				op_ora(cpu);
 				pc_to_adr(cpu);
 				cpu->ic++;
 			}
 			break;
 		case 4:
 			if (cpu->page_crossing) {
-				ora(cpu);
+				op_ora(cpu);
 				pc_to_adr(cpu);
 				cpu->ic++;
 			} else {
@@ -790,14 +790,14 @@ void opcode_1d(cpudata *cpu) { // ORA (Absolute,X)
 				cpu->adh++;
 				cpu->ic++;
 			} else {
-				ora(cpu);
+				op_ora(cpu);
 				pc_to_adr(cpu);
 				cpu->ic++;
 			}
 			break;
 		case 4:
 			if (cpu->page_crossing) {
-				ora(cpu);
+				op_ora(cpu);
 				pc_to_adr(cpu);
 				cpu->ic++;
 			} else {
@@ -838,7 +838,7 @@ void opcode_1e(cpudata *cpu) {  // ASL (Absolute,X)
 			cpu->ic++;
 			break;
 		case 5:
-			asl(cpu);
+			op_asl(cpu);
 			cpu->write = TRUE;
 			cpu->ic++;
 		case 6:
@@ -852,22 +852,147 @@ void opcode_1e(cpudata *cpu) {  // ASL (Absolute,X)
 			break;
 	}
 }
-  // 1f undefined
-void opcode_20(cpudata *cpu) {
+
+void opcode_20(cpudata *cpu) { // JSR
+	switch (cpu->ic) {
+		case 1:
+			cpu->ir = cpu->data;
+			increment_pc(cpu);
+			sp_to_adr(cpu);
+			cpu->ic++;
+			break;
+		case 2:
+			cpu->write = TRUE;
+			cpu->data = cpu->pch;
+			cpu->ic++;
+			break;
+		case 3:
+			cpu->write = TRUE;
+			cpu->sp--;
+			sp_to_adr(cpu);
+			cpu->data = cpu->pcl;
+			cpu->ic++;
+			break;
+		case 4:
+			pc_to_adr(cpu);
+			cpu->sp--;
+			cpu->ic++;
+			break;
+		case 5:
+			cpu->pcl = cpu->ir;
+			cpu->pch = cpu->data;
+			pc_to_adr(cpu);
+			cpu->ic++;
+			break;
+		case 6:
+			start_opcode(cpu);
+			break;
+		default:
+			break;
+	}
+}
+void opcode_21(cpudata *cpu) { // AND (Indirect,X)
+	switch (cpu->ic) {
+		case 1:
+			cpu->ir = cpu->data;
+			set_adr(cpu, cpu->ir);
+			increment_pc(cpu);
+			cpu->ic++;
+			break;
+		case 2:
+			set_adr(cpu, add_low(cpu->ir, cpu->x));
+			cpu->ic++;
+			break;
+		case 3:
+			increment_adl_only(cpu);
+			cpu->ir = cpu->data;
+			cpu->ic++;
+			break;
+		case 4:
+			cpu->adl = cpu->ir;
+			cpu->adh = cpu->data;
+			cpu->ic++;
+			break;
+		case 5:
+			op_and(cpu);
+			pc_to_adr(cpu);
+			cpu->ic++;
+			break;
+		case 6:
+			start_opcode(cpu);
+			break;
+		default:
+			break;
+	}
 	
-} // JSR
-void opcode_21(cpudata *cpu) {
-	
-} // AND (Indirect,X)
-  // 22-23 undefined
-void opcode_24(cpudata *cpu) {
-	
-} // BIT (ZP)
-void opcode_25(cpudata *cpu) {
-	
-} // AND (ZP)
-void opcode_26(cpudata *cpu) {
-	
+} 
+
+void opcode_24(cpudata *cpu) { // BIT (ZP)
+	switch (cpu->ic) {
+		case 1:
+			set_adr(cpu, cpu->data);
+			increment_pc(cpu);
+			cpu->ic++;
+			break;
+		case 2:
+			op_bit(cpu);
+			pc_to_adr(cpu);
+			cpu->ic++;
+			break;
+		case 3:
+			start_opcode(cpu);
+			break;
+		default:
+			break;
+	}
+}
+void opcode_25(cpudata *cpu) { // AND (ZP)
+	switch (cpu->ic) {
+		case 1:
+			set_adr(cpu, cpu->data);
+			increment_pc(cpu);
+			cpu->ic++;
+			break;
+		case 2:
+			op_and(cpu);
+			pc_to_adr(cpu);
+			cpu->ic++;
+			break;
+		case 3:
+			start_opcode(cpu);
+			break;
+		default:
+			break;
+	}
+}
+void opcode_26(cpudata *cpu) { // ROL (ZP)
+	switch(cpu->ic) {
+		case 1:
+			set_adr(cpu, cpu->data);
+			increment_pc(cpu);
+			cpu->ic++;
+			break;
+		case 2:
+			cpu->ir = cpu->data;
+			cpu->write = TRUE;
+			cpu->ic++;
+			break;
+		case 3:
+			cpu->write = TRUE;
+			op_rol(cpu);
+			cpu->data = cpu->ir;
+			cpu->ic++;
+			break;
+		case 4:
+			pc_to_adr(cpu);
+			cpu->ic++;
+			break;
+		case 5:
+			start_opcode(cpu);
+			break;
+		default:
+			break;
+	}
 } // ROL (ZP)
   // 27 undefined
 void opcode_28(cpudata *cpu) {
@@ -1346,15 +1471,36 @@ void opcode_fe(cpudata *cpu) {
 } // INC (Absolute,X)
   // ff undefined
 
-void ora(cpudata *cpu) {
+void op_ora(cpudata *cpu) {
 	cpu->a = cpu->a | cpu->data;
 	(cpu->a >> 7 == 1) ? (cpu->n = TRUE) : (cpu->n = FALSE);
 	(cpu->a == 0) ? (cpu->z = TRUE) : (cpu->z = FALSE);
 }
 
-void asl(cpudata *cpu) {
+void op_asl(cpudata *cpu) {
 	cpu->c = cpu->ir >> 7;
 	cpu->ir = (cpu->ir << 1) & 0xfe;
 	(cpu->ir >> 7 == 1) ? (cpu->n = TRUE) : (cpu->n = FALSE);
 	(cpu->ir == 0) ? (cpu->z = TRUE) : (cpu->z = FALSE);
+}
+
+void op_and(cpudata *cpu) {
+	cpu->a = cpu->a & cpu->data;
+	(cpu->a >> 7 == 1) ? (cpu->n = TRUE) : (cpu->n = FALSE);
+	(cpu->a == 0) ? (cpu->z = TRUE) : (cpu->z = FALSE);
+}
+
+void op_bit(cpudata *cpu) {
+	cpu->ir = cpu->a | cpu_>data;
+	(cpu->ir >> 7 == 1) ? (cpu->n = TRUE) : (cpu->n = FALSE);
+	((cpu->ir & 0x40) >> 6 == 1) ? (cpu->v = TRUE) : (cpu->v = FALSE);
+	(cpu->ir == 0) ? (cpu->z = TRUE) : (cpu->z = FALSE);
+}
+
+void op_rol(cpudata *cpu) {
+	unsigned char temp = (cpu->ir >> 7);
+	cpu->ir = ((cpu->ir << 1) & 0xfe) | cpu->c;
+	cpu->c = temp;
+	(cpu->ir == 0) ? (cpu->z = TRUE) : (cpu->z = FALSE);
+	(cpu->ir >> 7 == 1) ? (cpu->n = TRUE) : (cpu->n = FALSE);
 }

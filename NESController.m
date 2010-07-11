@@ -24,12 +24,18 @@
 #define PRG_BANK_SIZE 0x4000
 #define CHR_BANK_SIZE 0x2000
 #define INES_IDENTIFIER 0x4e45531a
-#define BASE_CLOCK 315/88*6
 
+#define BASE_CLOCK 315.0/88.0*6.0
+#define PPU_CLOCK BASE_CLOCK/4.0
+#define CPU_CLOCK BASE_CLOCK/12.0
+#define CPU_PPU_DIVIDER 3
+
+#define PPU_CYCLE_LENGTH 1/PPU_CLOCK
+#define CPU_CYCLE_LENGTH 1/CPU_CLOCK
 
 @implementation NESController
 
-@synthesize cpuAddressBus, cpuDataBus;
+@synthesize cpuAddressBus, cpuDataBus, reset;
 
 - (id) initWithROMFile:(NSURL *)romURL
 {
@@ -77,6 +83,12 @@
 		[[chr_rom_banks objectAtIndex:0] getBytes:&chr_rom];
 		
 		cpu = [[NES2A03 alloc] initWithController:self];
+		ppu = [[NES2C02 alloc] initWithController:self];
+		
+		cpu_queue = dispatch_queue_create("com.mesosynoptic.CoCoNES.cpu_queue", NULL);
+		ppu_queue = dispatch_queue_create("com.mesosynoptic.CoCoNES.ppu_queue", NULL);
+		
+		
 		for (int i=0; i < 0x800; i++) {
 			ram[i] = 0;
 		}
@@ -111,27 +123,57 @@
 - (void)main
 {
 	
-	self.cpuAddressBus = cpu.address;
+	dispatch_group_t tick_group = dispatch_group_create();
 	
-	if(cpu.write)
-		self.cpuDataBus = cpu.data;
-	else
-		self.cpuDataBus = [self readAddress:self.cpuAddressBus];
+	while (TRUE) {
+		
+		if ([self isCancelled]) {
+			break;
+		}
+		
+		self.cpuAddressBus = cpu.address;
+		if (cpu.write) {
+			self.cpuDataBus = cpu.data;
+		} else {
+			self.cpuDataBus = [self readAddress:self.cpuAddressBus];
+		}
+		
+		dispatch_group_async(tick_group, cpu_queue, ^{
+			[cpu tick];
+		});
+		
+		dispatch_group_async(tick_group, ppu_queue, ^{
+			[ppu tick];
+			[ppu tick];
+			[ppu tick];
+		});
+		
+		dispatch_group_wait(tick_group, DISPATCH_TIME_FOREVER);
 	
-	[cpu tick];
+	}
+	
+	dispatch_release(tick_group);
+	
 }
 
 - (IBAction)startEmulation:(id)sender
 {
-	
+	[self start];
 }
 - (IBAction)pauseEmulation:(id)sender
 {
-	
+	[self cancel];
 }
 - (IBAction)resetEmulation:(id)sender
 {
-	
+	self.reset = TRUE;
+}
+
+- (void)dealloc
+{
+	dispatch_release(cpu_queue);
+	dispatch_release(ppu_queue);
+	[super dealloc];
 }
 
 @end

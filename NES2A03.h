@@ -81,6 +81,7 @@ typedef struct _cpudata {
 void start_opcode(cpudata*);
 void increment_pc(cpudata*);
 void pc_to_adr(cpudata*);
+void sp_to_adr(cpudata*);
 void set_adr(cpudata*,unsigned short);
 void increment_adr(cpudata*);
 void increment_adl_only(cpudata*);
@@ -305,5 +306,8 @@ void opcode_fd(cpudata*); // SBC (Absolute,X)
 void opcode_fe(cpudata*); // INC (Absolute,X)
 						  // ff undefined
 
-void ora(cpudata*);
-void asl(cpudata*);
+void op_ora(cpudata*);
+void op_asl(cpudata*);
+void op_and(cpudata*);
+void op_bit(cpudata*);
+void op_rol(cpudata*);
