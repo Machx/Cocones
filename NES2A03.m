@@ -193,6 +193,11 @@
 		opcode[0xfd] = opcode_fd;
 		opcode[0xfe] = opcode_fe;
 		
+		// interrupt "opcodes"
+		opcode[0x100] = NULL; // placeholder for quick bitshifting
+		opcode[0x101] = opcode_irq;
+		opcode[0x102] = opcode_nmi;
+		
 		
 		// starting up the CPU (setting initial values)
 		
@@ -205,8 +210,7 @@
 		cpu_data.sp = 0xFF;
 		cpu_data.reset = false;
 		cpu_data.write = false;
-		cpu_data.irq = false;
-		cpu_data.nmi = false;
+		cpu_data.interrupt = NO_INTERRUPT_STATE;
 		
 		cpu_data.ic = 0;
 		
@@ -233,6 +237,14 @@
 		cpu_data.data = controller.cpuDataBus;
 	else
 		cpu_data.write = FALSE;
+	
+	if (controller.nmi) {
+		cpu_data.interrupt = NMI_STATE;
+	}
+	
+	if (controller.irq && (!cpu_data.interrupt == NMI_STATE) && (!cpu_data.i)) {
+		cpu_data.interrupt = IRQ_STATE;
+	}
 	
 	if(cpu_data.ic == 0)
 	{
@@ -264,7 +276,13 @@
 @end
 
 void start_opcode(cpudata *cpu) {
-	cpu->opcode = cpu->data;
+
+	if (cpu->interrupt) {
+		cpu->opcode = 0x100 | cpu->interrupt;
+	} else {
+		cpu->opcode = cpu->data;
+	}
+
 	cpu->ic = 1;
 	cpu->page_crossing = FALSE;
 	increment_pc(cpu);
@@ -283,6 +301,23 @@ void increment_pc(cpudata *cpu) {
 		cpu->pch++;
 	} else {
 		cpu->pcl++;
+	}
+}
+
+void decrement_pc(cpudata *cpu) {
+	if (cpu->pcl == 0x00) {
+		cpu->pcl = 0xff;
+		cpu->pch--;
+	} else {
+		cpu->pcl--;
+	}
+}
+
+void decrement_sp(cpudata *cpu) {
+	if(cpu->sp == 0x00) {
+		cpu->sp = 0xff;
+	} else {
+		cpu->sp--;
 	}
 }
 
@@ -337,21 +372,21 @@ void opcode_00(cpudata *cpu) { //BRK
 			sp_to_adr(cpu);
 			cpu->write = TRUE;
 			cpu->data = cpu->pch;
-			cpu->sp--;
+			decrement_sp(cpu);
 			cpu->ic++;
 			break;
 		case 2:
 			sp_to_adr(cpu);
 			cpu->write = TRUE;
 			cpu->data = cpu->pcl;
-			cpu->sp--;
+			decrement_sp(cpu);
 			cpu->ic++;
 			break;
 		case 3:
 			sp_to_adr(cpu);
 			cpu->write = TRUE;
 			cpu->data = encode_p(cpu);
-			cpu->sp--;
+			decrement_sp(cpu);
 			cpu->ic++;
 			break;
 		case 4:
@@ -466,7 +501,7 @@ void opcode_08(cpudata *cpu) { // PHP
 		case 1:
 			cpu->write = TRUE;
 			sp_to_adr(cpu);
-			cpu->sp--;
+			decrement_sp(cpu);
 			cpu->data = encode_p(cpu);
 			cpu->ic++;
 			break;
@@ -868,14 +903,14 @@ void opcode_20(cpudata *cpu) { // JSR
 			break;
 		case 3:
 			cpu->write = TRUE;
-			cpu->sp--;
+			decrement_sp(cpu);
 			sp_to_adr(cpu);
 			cpu->data = cpu->pcl;
 			cpu->ic++;
 			break;
 		case 4:
 			pc_to_adr(cpu);
-			cpu->sp--;
+			decrement_sp(cpu);
 			cpu->ic++;
 			break;
 		case 5:
@@ -1470,6 +1505,103 @@ void opcode_fe(cpudata *cpu) {
 	
 } // INC (Absolute,X)
   // ff undefined
+
+// interrupt "opcodes"
+void opcode_nmi(cpudata *cpu) {
+	switch (cpu->ic) {
+		case 1:
+			decrement_pc(cpu); // fix since opcode starter automatically increments
+			sp_to_adr(cpu);
+			cpu->write = TRUE;
+			cpu->data = cpu->pch;
+			cpu->ic++;
+			break;
+		case 2:
+			decrement_sp(cpu);
+			sp_to_adr(cpu);
+			cpu->write = TRUE;
+			cpu->data = cpu->pcl;
+			cpu->ic++;
+			break;
+		case 3:
+			decrement_sp(cpu);
+			sp_to_adr(cpu);
+			cpu->write = TRUE;
+			cpu->data = encode_p(cpu);
+			cpu->ic++;
+			break;
+		case 4:
+			decrement_sp(cpu);
+			set_adr(cpu, NMI_VECTOR);
+			cpu->ic++;
+			break;
+		case 5:
+			cpu->pcl = cpu->data;
+			set_adr(cpu, NMI_VECTOR + 1);
+			cpu->ic++;
+			break;
+		case 6:
+			cpu->pch = cpu->data;
+			pc_to_adr(cpu);
+			cpu->i = TRUE;
+			cpu->interrupt = NO_INTERRUPT_STATE;
+			cpu->ic++;
+			break;
+		case 7:
+			start_opcode(cpu);
+			break;
+		default:
+			break;
+	}
+}
+
+void opcode_irq(cpudata *cpu) {
+	switch (cpu->ic) {
+		case 1:
+			decrement_pc(cpu); // fix since opcode starter automatically increments
+			sp_to_adr(cpu);
+			cpu->write = TRUE;
+			cpu->data = cpu->pch;
+			cpu->ic++;
+			break;
+		case 2:
+			decrement_sp(cpu);
+			sp_to_adr(cpu);
+			cpu->write = TRUE;
+			cpu->data = cpu->pcl;
+			cpu->ic++;
+			break;
+		case 3:
+			decrement_sp(cpu);
+			sp_to_adr(cpu);
+			cpu->write = TRUE;
+			cpu->data = encode_p(cpu);
+			cpu->ic++;
+			break;
+		case 4:
+			decrement_sp(cpu);
+			set_adr(cpu, IRQ_VECTOR);
+			cpu->ic++;
+			break;
+		case 5:
+			cpu->pcl = cpu->data;
+			set_adr(cpu, IRQ_VECTOR + 1);
+			cpu->ic++;
+			break;
+		case 6:
+			cpu->pch = cpu->data;
+			pc_to_adr(cpu);
+			cpu->i = TRUE;
+			cpu->interrupt = NO_INTERRUPT_STATE;
+			cpu->ic++;
+			break;
+		case 7:
+			start_opcode(cpu);
+			break;
+		default:
+			break;
+	}
+}
 
 void op_ora(cpudata *cpu) {
 	cpu->a = cpu->a | cpu->data;

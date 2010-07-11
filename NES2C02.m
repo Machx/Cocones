@@ -20,17 +20,39 @@
  ********************************************************************************/
 
 #import "NES2C02.h"
+#define PIXELS_PER_SCANLINE 341
+#define SCANLINES_PER_FRAME 262
 
 
 @implementation NES2C02
 
-- (id) initWithController:(NESController *)controller
+@synthesize controller;
+
+- (id) initWithController:(NESController *)nes_controller
 {
 	self = [super init];
 	if (self != nil) {
+		self.controller = nes_controller;
 		
+		pixel_counter = 0;
+		scanline_counter = 0;
 	}
 	return self;
+}
+
+- (void)tick
+{
+	if(pixel_counter == PIXELS_PER_SCANLINE - 1) {
+		pixel_counter = 0;
+		if(scanline_counter == SCANLINES_PER_FRAME - 1) {
+			scanline_counter = 0;
+			controller.nmi = TRUE;
+		} else {
+			scanline_counter++;
+		}
+	} else {
+		pixel_counter++;
+	}
 }
 
 @end

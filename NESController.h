@@ -36,6 +36,9 @@
 	
 	unsigned short cpuAddressBus;
 	unsigned char cpuDataBus;
+	bool reset;
+	bool nmi;
+	bool irq;
 	
 	unsigned char ram[0x800];
 	unsigned char prg_rom[0x8000];
@@ -45,12 +48,14 @@
 	NSArray *prg_rom_banks;
 	NSArray *chr_rom_banks;
 	
-	bool reset;
+
 }
 
 @property(assign) unsigned short cpuAddressBus;
 @property(assign) unsigned char cpuDataBus;
 @property(assign) bool reset;
+@property(assign) bool nmi;
+@property(assign) bool irq;
 
 - (id) initWithROMFile:(NSURL *)romURL;
 - (unsigned char)readAddress:(unsigned short)address;

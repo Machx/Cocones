@@ -35,7 +35,7 @@
 
 @implementation NESController
 
-@synthesize cpuAddressBus, cpuDataBus, reset;
+@synthesize cpuAddressBus, cpuDataBus, reset, nmi, irq;
 
 - (id) initWithROMFile:(NSURL *)romURL
 {

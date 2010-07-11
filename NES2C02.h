@@ -26,9 +26,15 @@
 
 @interface NES2C02 : NSObject {
 
+	NESController *controller;
+	int pixel_counter, scanline_counter;
+	
 }
+
+@property(retain) NESController *controller;
 
 - (id)initWithController:(NESController *)controller;
 - (void)tick;
+
 
 @end

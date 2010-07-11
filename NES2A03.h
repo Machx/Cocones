@@ -24,14 +24,19 @@
 
 @class NESController;
 
+typedef enum irq_state {
+	NO_INTERRUPT_STATE = 0,
+	IRQ_STATE,
+	NMI_STATE
+} irq_state;
+
 typedef struct _cpudata {
 	
 	unsigned char adl;
 	unsigned char adh;
 	unsigned char data;
+	unsigned char interrupt;
 	bool reset;
-	bool irq;
-	bool nmi;
 	bool write;
 	
 	unsigned char a;
@@ -50,7 +55,7 @@ typedef struct _cpudata {
 	bool n;
 	
 	bool page_crossing;
-	unsigned char opcode;
+	unsigned short opcode;
 	unsigned char ic;
 	unsigned char ir;
 	
@@ -60,7 +65,7 @@ typedef struct _cpudata {
 	
 	NESController *controller;
 	
-	void (*opcode[255])(cpudata*);
+	void (*opcode[258])(cpudata*);
 	cpudata cpu_data;
 	
 	unsigned short address;
@@ -80,6 +85,8 @@ typedef struct _cpudata {
 
 void start_opcode(cpudata*);
 void increment_pc(cpudata*);
+void decrement_pc(cpudata*); // to fix PC on interrupts
+void decrement_sp(cpudata*);
 void pc_to_adr(cpudata*);
 void sp_to_adr(cpudata*);
 void set_adr(cpudata*,unsigned short);
@@ -305,6 +312,9 @@ void opcode_f9(cpudata*); // SBC (Absolute,Y)
 void opcode_fd(cpudata*); // SBC (Absolute,X)
 void opcode_fe(cpudata*); // INC (Absolute,X)
 						  // ff undefined
+// interrupt "opcodes"
+void opcode_nmi(cpudata*);
+void opcode_irq(cpudata*);
 
 void op_ora(cpudata*);
 void op_asl(cpudata*);
