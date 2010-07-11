@@ -28,6 +28,7 @@
 
 }
 
-- (id)initWithController:(NESController *controller);
+- (id)initWithController:(NESController *)controller;
+- (void)tick;
 
 @end
