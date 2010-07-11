@@ -21,8 +21,10 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NES2A03.h"
+#import "NES2C02.h"
 
 @class NES2A03;
+@class NES2C02;
 
 @interface NESController : NSThread {
 	

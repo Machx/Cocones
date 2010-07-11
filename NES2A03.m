@@ -683,7 +683,7 @@ void opcode_15(cpudata *cpu) { // ORA (ZP,X)
 void opcode_16(cpudata *cpu) { // ASL (ZP,X)
 	switch (cpu->ic) {
 		case 1:
-			cpu->adl(cpu->data);
+			cpu->adl = cpu->data;
 			cpu->ic++;
 			break;
 		case 2:
@@ -843,7 +843,7 @@ void opcode_1e(cpudata *cpu) {  // ASL (Absolute,X)
 			cpu->ic++;
 		case 6:
 			pc_to_adr(cpu);
-			ic++;
+			cpu->ic++;
 			break;
 		case 7:
 			start_opcode(cpu);
@@ -993,8 +993,8 @@ void opcode_26(cpudata *cpu) { // ROL (ZP)
 		default:
 			break;
 	}
-} // ROL (ZP)
-  // 27 undefined
+}
+
 void opcode_28(cpudata *cpu) {
 	
 } // PLP
@@ -1491,7 +1491,7 @@ void op_and(cpudata *cpu) {
 }
 
 void op_bit(cpudata *cpu) {
-	cpu->ir = cpu->a | cpu_>data;
+	cpu->ir = cpu->a | cpu->data;
 	(cpu->ir >> 7 == 1) ? (cpu->n = TRUE) : (cpu->n = FALSE);
 	((cpu->ir & 0x40) >> 6 == 1) ? (cpu->v = TRUE) : (cpu->v = FALSE);
 	(cpu->ir == 0) ? (cpu->z = TRUE) : (cpu->z = FALSE);

@@ -2,9 +2,9 @@
 {
 	0116CAB811E427D40005A7E9 /* NES2C02.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {732, 410}}";
-			sepNavSelRange = "{883, 0}";
-			sepNavVisRange = "{0, 951}";
+			sepNavIntBoundsRect = "{{0, 0}, {732, 455}}";
+			sepNavSelRange = "{1062, 0}";
+			sepNavVisRange = "{232, 837}";
 		};
 	};
 	0116CAB911E427D40005A7E9 /* NES2C02.m */ = {
@@ -19,10 +19,80 @@
 		fRef = 01FB005B11DCCBC80093E30C /* NES2A03.m */;
 		name = "NES2A03.m: 855";
 		rLen = 0;
-		rLoc = 15901;
+		rLoc = 8857;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 0;
+	};
+	016855E711E9892D006B25F7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 20";
+		rLen = 0;
+		rLoc = 883;
+		rType = 0;
+		vrLen = 1006;
+		vrLoc = 0;
+	};
+	016855E811E9892D006B25F7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01FB006011DCCC1B0093E30C /* NESController.m */;
+		name = "NESController.m: 169";
+		rLen = 0;
+		rLoc = 4539;
+		rType = 0;
+		vrLen = 1014;
+		vrLoc = 1980;
+	};
+	016855E911E9892D006B25F7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01FB005A11DCCBC80093E30C /* NES2A03.h */;
+		name = "NES2A03.h: 313";
+		rLen = 0;
+		rLoc = 10053;
+		rType = 0;
+		vrLen = 938;
+		vrLoc = 9115;
+	};
+	016855EA11E9892D006B25F7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01FB005B11DCCBC80093E30C /* NES2A03.m */;
+		name = "NES2A03.m: 1494";
+		rLen = 0;
+		rLoc = 26771;
+		rType = 0;
+		vrLen = 861;
+		vrLoc = 26336;
+	};
+	016855EB11E9892D006B25F7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01FB005F11DCCC1B0093E30C /* NESController.h */;
+		name = "NESController.h: 32";
+		rLen = 0;
+		rLoc = 1039;
+		rType = 0;
+		vrLen = 635;
+		vrLoc = 1038;
+	};
+	016855EC11E9892D006B25F7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0116CAB811E427D40005A7E9 /* NES2C02.h */;
+		name = "NES2C02.h: 20";
+		rLen = 0;
+		rLoc = 883;
+		rType = 0;
+		vrLen = 994;
+		vrLoc = 0;
+	};
+	016855ED11E9892D006B25F7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0116CAB811E427D40005A7E9 /* NES2C02.h */;
+		name = "NES2C02.h: 32";
+		rLen = 0;
+		rLoc = 1062;
+		rType = 0;
+		vrLen = 837;
+		vrLoc = 232;
 	};
 	016D1C4211E5897F00A96F31 /* COPYING */ = {
 		uiCtxt = {
@@ -136,7 +206,7 @@
 		fRef = 01FB005B11DCCBC80093E30C /* NES2A03.m */;
 		name = "NES2A03.m: 734";
 		rLen = 0;
-		rLoc = 13939;
+		rLoc = 8857;
 		rType = 0;
 		vrLen = 466;
 		vrLoc = 13616;
@@ -146,7 +216,7 @@
 		fRef = 01FB005B11DCCBC80093E30C /* NES2A03.m */;
 		name = "NES2A03.m: 855";
 		rLen = 0;
-		rLoc = 15901;
+		rLoc = 8857;
 		rType = 0;
 		vrLen = 1036;
 		vrLoc = 0;
@@ -199,30 +269,30 @@
 	};
 	01FB005A11DCCBC80093E30C /* NES2A03.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {732, 4355}}";
-			sepNavSelRange = "{883, 0}";
-			sepNavVisRange = "{1408, 772}";
+			sepNavIntBoundsRect = "{{0, 0}, {732, 4043}}";
+			sepNavSelRange = "{10053, 0}";
+			sepNavVisRange = "{9115, 938}";
 		};
 	};
 	01FB005B11DCCBC80093E30C /* NES2A03.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {732, 17537}}";
-			sepNavSelRange = "{15901, 0}";
-			sepNavVisRange = "{609, 734}";
+			sepNavIntBoundsRect = "{{0, 0}, {732, 19396}}";
+			sepNavSelRange = "{26765, 0}";
+			sepNavVisRange = "{26336, 861}";
 		};
 	};
 	01FB005F11DCCC1B0093E30C /* NESController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {732, 780}}";
-			sepNavSelRange = "{127, 0}";
-			sepNavVisRange = "{909, 580}";
+			sepNavIntBoundsRect = "{{0, 0}, {732, 819}}";
+			sepNavSelRange = "{1039, 0}";
+			sepNavVisRange = "{1038, 635}";
 		};
 	};
 	01FB006011DCCC1B0093E30C /* NESController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1125, 1872}}";
-			sepNavSelRange = "{883, 0}";
-			sepNavVisRange = "{2707, 680}";
+			sepNavIntBoundsRect = "{{0, 0}, {1125, 2340}}";
+			sepNavSelRange = "{4213, 0}";
+			sepNavVisRange = "{3917, 488}";
 		};
 	};
 	01FB009111DCCD3E0093E30C /* NESAppDelegate.m:45 */ = {
@@ -239,7 +309,7 @@
 		ignoreCount = 0;
 		lineNumber = 45;
 		location = CoCoNES;
-		modificationTime = 300256532.903893;
+		modificationTime = 300517675.064451;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
@@ -330,6 +400,13 @@
 		};
 		perUserProjectItems = {
 			01300D1111E81EBE00E254A6 = 01300D1111E81EBE00E254A6 /* PBXTextBookmark */;
+			016855E711E9892D006B25F7 /* PBXTextBookmark */ = 016855E711E9892D006B25F7 /* PBXTextBookmark */;
+			016855E811E9892D006B25F7 /* PBXTextBookmark */ = 016855E811E9892D006B25F7 /* PBXTextBookmark */;
+			016855E911E9892D006B25F7 /* PBXTextBookmark */ = 016855E911E9892D006B25F7 /* PBXTextBookmark */;
+			016855EA11E9892D006B25F7 /* PBXTextBookmark */ = 016855EA11E9892D006B25F7 /* PBXTextBookmark */;
+			016855EB11E9892D006B25F7 /* PBXTextBookmark */ = 016855EB11E9892D006B25F7 /* PBXTextBookmark */;
+			016855EC11E9892D006B25F7 /* PBXTextBookmark */ = 016855EC11E9892D006B25F7 /* PBXTextBookmark */;
+			016855ED11E9892D006B25F7 /* PBXTextBookmark */ = 016855ED11E9892D006B25F7 /* PBXTextBookmark */;
 			016D1C4711E58BF100A96F31 = 016D1C4711E58BF100A96F31 /* PBXTextBookmark */;
 			016D1C4B11E58BF100A96F31 = 016D1C4B11E58BF100A96F31 /* PBXTextBookmark */;
 			016D1C4D11E58BF100A96F31 = 016D1C4D11E58BF100A96F31 /* PBXTextBookmark */;
@@ -349,7 +426,7 @@
 	};
 	29B97316FDCFA39411CA2CEA /* main.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {732, 410}}";
+			sepNavIntBoundsRect = "{{0, 0}, {732, 372}}";
 			sepNavSelRange = "{883, 0}";
 			sepNavVisRange = "{0, 1006}";
 		};
